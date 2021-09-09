@@ -1,5 +1,12 @@
 img = "";
 Status = " ";
+L = " ";
+X = "0";
+Y = "0";
+H = "0";
+W = "0";
+LX = "0";
+LY = "0";
 function preload(){
     img = loadImage("dog_cat.jpg");
 }
@@ -13,8 +20,8 @@ function draw() {
     image(img, 0, 0, 640, 420);
     stroke('red');
     noFill();
-    rect(90, 50, 250, 360);
-    text("Dog", 90, 40);
+    rect(X, Y, H, W);
+    text(L, LX, LY);
     stroke('yellow');
     noFill();
     rect(290, 70, 300, 330);
@@ -32,5 +39,12 @@ function gotresults(error, results) {
     }
     else {
         console.log(results);
+        L = results[0].label;
+        X = results[0].x;
+        Y = results[0].y;
+        H = results[0].height;
+        W = results[0].width;
+        LX = X + 10;
+        LY = Y + 10;
     }
 }
